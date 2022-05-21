@@ -4,40 +4,54 @@
 
 
 ## Election-Audit Results
+### Total Votes in the Election
 <!-- How many votes were cast in this congressional election? -->
-There were 369,711 votes cast in the congressional election. This value was determined by having a for loop run through each row in the 'election_results.csv' file and tally each ballot that was cast. A picture of the code used can be found below.
-![ian-zukowski](Total_Votes_Code)
-(44-48)
+There were 369,711 votes cast in the congressional election. This value was determined by having a 'for' loop run through each row in the 'election_results.csv' file and tally each ballot that was cast. A picture of the code used can be found below.
 
+#### Total Votes Code
+![ian-zukowski](Total_Votes_Code.png)
+<!-- (44-48) -->
+
+### Election Data by County
 <!-- Provide a breakdown of the number of votes and the percentage of total votes for each county in the precinct. -->
 <!-- Which county had the largest number of votes? -->
 The three counties which participated in the election were Denver, Jefferson, and Arapahoe counties. The county with the most voters was Denver county. It comprised 82.8% of the vote with 306,055 ballots cast. The second largest county was Jefferson county, which supplied 10.5% of the votes with its 38,855 ballots. The smallest county was Arapahoe, which comprised 6.7% of the votes with 24,801 ballots cast.
 These values were obtained from the 'election_results.csv' file by creating a conditional statement which selected the name of the county on each ballot and appended the county into a list if it was not already present. 
 In a separate dictionary (consisting of Key:Value pairings made from County Name:County Votes) the County Votes values were then set to equal 0. And as the code cycled through each row, that value was increased by 1 if the County Name was matched in column 2 of that row.
 A picture detailing the code used to find each county's vote count can be found below.
-![ian-zukowski](County_Votes_Code)
-(69-80)
+
+#### County Votes Code
+![ian-zukowski](County_Votes_Code.png)
+<!-- (69-80) -->
 
 After obtaining the vote count for each county it was further necessary to obtain that result as a percentage of the total votes in the election. To find this percentage, each entry in the County Votes dictionary was referenced in a new 'for' loop to obtain the total votes for a county. That value was then divided by the total votes (369,711) and reformatted as a percentage.
 To find the county with the most votes, the same 'for' loop was utilized. For this calculation an empty integer and string variable were made to hold values for the vote count of the largest county, and the name of the largest county. As the 'for' loop ran through the dictionary, it checked if the current county had a vote count larger than the previous counties. If the vote count was the highest in the list so far, then the empty variables stored the value and key from that entry of the dictionary. This code returned the known value that Denver county had the largest voter turnout with its 306,055 ballots.
 The described code can be found in the picture below.
-![ian-zukowski](Largest_County_Code)
-(96-115)
 
+#### Largest County Code
+![ian-zukowski](Largest_County_Code.png)
+<!-- (96-115) -->
+
+### Election Data by Candidate
 <!-- Provide a breakdown of the number of votes and the percentage of the total votes each candidate received. -->
 The candidates in the election were Diana DeGette, Charles Casper Stockham, and Raymon Anthony Doane. The candidate with the highest vote total was Diana DeGette who recieved 73.8% of the votes. This value represents the 272,892 ballots which were cast for Rep. DeGette. The first runner-up was Charles Casper Stockham. The 23.0% of the votes that Mr. Stockham earned represents 85,213 ballots. Finally the candidate with the least votes was Raymon Anthony Doane. Mr. Doane recieved 3.1% of the votes, which represents 11,606 ballots.
 The code to find these values followed a similar pathway to the code used to breakdown the results by county above. In the 'election_results.csv' file a conditional statement was created to select the names of unique candidates and add them into a list if the name was not already present.
 Then in a separate dictionary (consisting of Candidate Name:Candidate Votes for the Key:Value pairings) the Candidate Votes were set equal to 0. And as the code cycled through each row, that value was increased by 1 if the Candidate Name was found in column 3 of that row.
 A picture detailing the code used can be found below.
+
+#### Candidate Votes Code
 ![ian-zukowski](Candidate_Votes_Code)
-(56-67)
+<!-- (56-67) -->
 
 <!-- Which candidate won the election, what was their vote count, and what was their percentage of the total votes?  -->
 
 After obtaining the vote count for each candidate it was further necessary to obtain that result as a percentage of the total votes in the election. To find this percentage, each entry in the Candidate Votes dictionary was referenced in a new 'for' loop to obtain the total votes for a county. That value was then divided by the total votes (369,711) and reformatted as a percentage.
 To find the candidate with the most votes, the same 'for' loop was utilized. For this calculation an empty integer and string variable were made to hold values for the vote count of the leading candidate, and the name of the largest candidate. As the 'for' loop ran through the dictionary, it checked if the current candidate had a vote count larger than the previous candidates. If the vote count was the highest in the list so far, then the empty variables stored the value and key from that entry of the dictionary. This code returned the known value that Rep. Diana DeGette won the election with 272,892 (73.8%) of the votes.
 The described code can be found in the picture below.
+
+#### Winning Candidate Code
 ![ian-zukowski](Winning_Candidate_Code)
+<!-- (132-151) -->
 
 ## Election-Audit Summary
 Will gather the same information for any election because:
