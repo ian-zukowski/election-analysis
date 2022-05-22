@@ -8,9 +8,9 @@ from multiprocessing.sharedctypes import Value
 import os
 
 # Add a variable to load a file from a path.
-file_to_load = os.path.join("Resources", "election_results.csv")
+file_to_load = os.path.join("election-analysis","Challenge_Resources", "election_results.csv")
 # Add a variable to save the file to a path.
-file_to_save = os.path.join("analysis", "election_analysis.txt")
+file_to_save = os.path.join("election-analysis","analysis", "election_analysis.txt")
 
 # Initialize a total vote counter.
 total_votes = 0
@@ -161,5 +161,3 @@ with open(file_to_save, "w") as txt_file:
 
     # Save the winning candidate's name to the text file
     txt_file.write(winning_candidate_summary)
-
-close(file_to_load)
