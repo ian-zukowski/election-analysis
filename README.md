@@ -1,7 +1,45 @@
 # Election Analysis
 
 ## Overview of Election Audit
+A Colorado Board of Elections employee has given you the following tasks to complete the election audit of a recent local congressional election.
 
+1. Calculate the total number of votes cast.
+2. Get a complete list of candidates who received votes.
+3. Calculate the total number of votes each candidate received.
+4. Calculate the percentage of votes each candidate won.
+5. Determine the winner of the election based on popular votes.\
+6. Get a complete list of counties who participated in the election.
+7. Calculate the total number of votes supplied by each county.
+8. Calculate the percentage of votes supplied by each county.
+9. Determine the largest county based on registered voters who participated in the election.
+
+## Resources
+- Data Source: election_results.csv
+- Software: Python 3.10.4, Visual Studio Code 1.66.2
+
+## Summary
+The analysis of the election show that:
+- There were 369,711 votes cast in the election.
+- The candidates were:
+    - Charles Casper Stockham
+    - Diana DeGette
+    - Raymon Anthony Doane
+- The candidate results were:
+    - Charles Casper Stockham received 23.05% of the vote and 85,213 votes.
+    - Diana DeGette received 73.81% of the vote and 272,892 votes.
+    - Raymon Anthony Doane received 3.14% of the vote and 11,606 votes.
+- The winner of the election was:
+    - Diana DeGette, who received 73.81% of the vote and 272,892 votes.
+- The counties that participated in the election were:
+    - Arapahoe
+    - Denver
+    - Jefferson
+- The amount of ballots from each county were:
+    - Arapahoe county contributed 24,801 ballots which was 6.7% of the total vote.
+    - Denver county contributed 306,055 ballots which was 82.8% of the total vote.
+    - Jefferson county contributed 38,855 ballots which was 10.5% of the total vote.
+- The largest county was:
+    -  Denver county, which contributed 306,055 ballots These comprised 82.8% of the ballots.
 
 ## Election-Audit Results
 ### Total Votes in the Election
@@ -76,13 +114,6 @@ To address the first point, it is important to keep in mind that most general el
 
 Another point that may need to be addressed is the larger turnout and voting system associated with statewide and national elections. In these larger elections, the single file used here (representing Colorado's 1st District) would need to be used in conjuction with the results from the six other congressional districts. To count all of these results in the same code the following modifications could be made:
     (1) Have a distinct name to reference each file which will need to be read (i.e. instead of "file_to_load", reference "file_to_load_1")
-    (2) Run the same code for "file_to_load_1"
-    (3) 
-
-
-
-Suggestion 1: Breakdown candidate vote per county
-Suggestion 2: Account for ballot measures/other issues that are being voted on
-Suggestion 3: Breakdown votes per demographics (assuming gathered in separate database)
-Suggestion 4: Change code to account for a tie?
-Suggestion 5: Account for sample error/recount margins?
+    (2) Set up a 'for' loop to run through "file_to_load_1", "file_to_load_2", etc.
+    (3) In a nested 'for' loop, run the original 'for' loop for "file_to_load_1" (lines 38-81)
+    (4) Close the current "file_to_load" and advance the next iteration of the "file_to_load" through the 'for' loop
