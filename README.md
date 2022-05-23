@@ -47,7 +47,7 @@ The analysis of the election show that:
 There were 369,711 votes cast in the congressional election. This value was determined by having a 'for' loop run through each row in the 'election_results.csv' file and tally each ballot that was cast. A picture of the code used can be found below.
 
 #### Total Votes Code
-![ian-zukowski](Total_Votes_Code.png)
+![ian-zukowski](Challenge_Resources/Total_Votes_Code.png)
 <!-- (44-48) -->
 
 ### Election Data by County
@@ -59,7 +59,7 @@ In a separate dictionary (consisting of Key:Value pairings made from County Name
 A picture detailing the code used to find each county's vote count can be found below.
 
 #### County Votes Code
-![ian-zukowski](County_Votes_Code.png)
+![ian-zukowski](Challenge_Resources/County_Votes_Code.png)
 <!-- (69-80) -->
 
 After obtaining the vote count for each county it was further necessary to obtain that result as a percentage of the total votes in the election. To find this percentage, each entry in the County Votes dictionary was referenced in a new 'for' loop to obtain the total votes for a county. That value was then divided by the total votes (369,711) and reformatted as a percentage.
@@ -67,7 +67,7 @@ To find the county with the most votes, the same 'for' loop was utilized. For th
 The described code can be found in the picture below.
 
 #### Largest County Code
-![ian-zukowski](Largest_County_Code.png)
+![ian-zukowski](Challenge_Resources/Largest_County_Code.png)
 <!-- (96-115) -->
 
 ### Election Data by Candidate
@@ -78,7 +78,7 @@ Then in a separate dictionary (consisting of Candidate Name:Candidate Votes for 
 A picture detailing the code used can be found below.
 
 #### Candidate Votes Code
-![ian-zukowski](Candidate_Votes_Code)
+![ian-zukowski](Challenge_Resources/Candidate_Votes_Code.png)
 <!-- (56-67) -->
 
 <!-- Which candidate won the election, what was their vote count, and what was their percentage of the total votes?  -->
@@ -88,32 +88,30 @@ To find the candidate with the most votes, the same 'for' loop was utilized. For
 The described code can be found in the picture below.
 
 #### Winning Candidate Code
-![ian-zukowski](Winning_Candidate_Code)
+![ian-zukowski](Challenge_Resources/Winning_Candidate_Code.png)
 <!-- (132-151) -->
 
 ## Election-Audit Summary
-Will gather the same information for any election because:
-(1) guaranteed to gather all candidates
-(2) guaranteed to gather all counties
-(3) will output percentage votes and determine in all events but a tie
+Even in a larger election this code would still be capable of finding the same information on candidates and county data, assuming it is linked to a similar .csv file as the one used for this audit. It would still gather all of the unique entries from the 2nd and 3rd columns in the .csv file and create a list, dictionary, and results summary similar to the products created for this audit.
 
-
-In larger elections the code would need to be modified to account for the following additional factors:
-(1) Ballot Measures and other election results
-(2) Election data coming from separate counties/districts
+Depending on the desired outcomes of the audit, the code could also be modified to account for the following additional factors:
+* Ballot Measures and other election results
+* Election data coming from separate counties/districts
 
 To address the first point, it is important to keep in mind that most general elections have additional ballot measures including elections for other local government officials and ballot initiatives and referendums. To count these results the code could be modified in the following way:
-    (1a) Create an empty list and dictionary before the initial 'for' loop
-    (1b) Create an empty 'winning_result' string and 'winning_percentage' variable equal to 0.
-    (2) In the 'for' loop, append the relevant unique vote results (i.e. Candidate Names or Yes/No) into the empty list
-    (3) Link the dictionary to this list, with the vote results as the Key. Add 1 to the value associated with that key.
-    (4) Create a new 'for' loop that runs through the entries in the dictionary.
-    (5) Set a variable to find the value associated with each key in the dictionary.
-    (6) Divide that value (as a float) with the total votes in the election to obtain a 'value percentage'.
-    (7) Check whether the 'value percentage' is larger than the current 'winning_percentage'. If so, then set this value as the new winning percentage, and its associated key as the 'winning_result'.
+
+* Create an empty list and dictionary before the initial 'for' loop
+* Create an empty 'winning_result' string and 'winning_percentage' variable equal to 0.
+* In the 'for' loop, append the relevant unique vote results (i.e. Candidate Names or Yes/No) into the empty list
+* Link the dictionary to this list, with the vote results as the Key. Add 1 to the value associated with that key.
+* Create a new 'for' loop that runs through the entries in the dictionary.
+* Set a variable to find the value associated with each key in the dictionary.
+* Divide that value (as a float) with the total votes in the election to obtain a 'value percentage'.
+* Check whether the 'value percentage' is larger than the current 'winning_percentage'. If so, then set this value as the new winning percentage, and its associated key as the 'winning_result'.
 
 Another point that may need to be addressed is the larger turnout and voting system associated with statewide and national elections. In these larger elections, the single file used here (representing Colorado's 1st District) would need to be used in conjuction with the results from the six other congressional districts. To count all of these results in the same code the following modifications could be made:
-    (1) Have a distinct name to reference each file which will need to be read (i.e. instead of "file_to_load", reference "file_to_load_1")
-    (2) Set up a 'for' loop to run through "file_to_load_1", "file_to_load_2", etc.
-    (3) In a nested 'for' loop, run the original 'for' loop for "file_to_load_1" (lines 38-81)
-    (4) Close the current "file_to_load" and advance the next iteration of the "file_to_load" through the 'for' loop
+
+* Have a distinct name to reference each file which will need to be read (i.e. instead of "file_to_load", reference "file_to_load_1")
+* Set up a 'for' loop to run through "file_to_load_1", "file_to_load_2", etc.
+* In a nested 'for' loop, run the original 'for' loop for "file_to_load_1" (lines 38-81)
+* Close the current "file_to_load" and advance the next iteration of the "file_to_load" through the 'for' loop
